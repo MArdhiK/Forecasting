@@ -60,29 +60,8 @@ Sales
 colSums(is.na(Sales))
 ```
 
-#Lets look total Sales each day
-```{r, message=FALSE, warning=FALSE}
-Sales_day<-Sales%>%
-  group_by(Day)%>%
-  summarise(Total.Sales=sum(Total_Price))%>%
-  arrange(desc(Total.Sales))
 
-ggplot(data=Sales_day,aes(
-  x=reorder(Day,Total.Sales),
-  y=Total.Sales))+
-geom_col(aes(fill=Total.Sales),show.legend = FALSE)+
-theme_bw()+
-theme(axis.text=element_text(size=10),
-      axis.title=element_text(size=12, colour="black"))+
-labs(title = "Total Sales Each Day",
-     subtitle = "January 2017 - September 2018",
-     x = "Day",
-     y = "Total Sales")
-
-```
-Look at that, Day 1, 15, 30 the first date, the middle date, the end date is it coincidence ??, nobody knows. Day 31, is the lowet because yeah, we know that not all of month has day 31
-
-
+#Sales Composition Each Day Based on Product Category
 ```{r}
 Sales%>%
   group_by(Day, Product_Category)%>%
@@ -103,6 +82,7 @@ Sales%>%
        y = "Total Sales")
 ```
 
+#Total Unit Sold Composition Each Day Based on Product Category
 ```{r}
 Sales%>%
   group_by(Day, Product_Category)%>%
@@ -124,36 +104,8 @@ Sales%>%
 ```
 
 
-#Lets look total Sales each month
-```{r, message=FALSE, warning=FALSE}
-Sales_month<-Sales%>%
-  group_by(Month)%>%
-  summarise(Total.Sales=sum(Total_Price))%>%
-  arrange(desc(Total.Sales))
 
-ggplot(data=Sales_month,aes(
-  x=reorder(Month,Total.Sales),
-  y=Total.Sales,
-  label=Total.Sales))+
-  geom_col(aes(fill=Total.Sales),show.legend = FALSE)+
-  coord_flip()+
-  theme_bw()+
-  theme(axis.text=element_text(size=10),
-        axis.title=element_text(size=12, colour="black"))+
-  geom_label(aes(fill=Total.Sales),
-             colour="white",
-             size=4,
-             show.legend = FALSE,
-             position = position_stack(0.9))+
-  labs(title = "Total Sales Each Month",
-       subtitle = "January 2017 - September 2018",
-       x = "Month",
-       y = "Total Sales")
-
-```
-Wow, April is the highest sales, october is the least or I can say the Q4 is the lowest because the data just to september 2018, now exclude the Q4, Q2 have the highest sales (April, May, June)
-
-
+#Sales Composition Each Month Based on Product Category
 ```{r}
 Sales%>%
   group_by(Month, Product_Category)%>%
@@ -174,7 +126,7 @@ Sales%>%
        y = "Total Sales")
 ```
 
-
+#Total Unit Sold Composition Each Month Based on Product Category
 ```{r}
 Sales%>%
   group_by(Month, Product_Category)%>%
@@ -224,7 +176,7 @@ labs(title = "Total Sales Based on Product Names",
      y = "Total Sales")
 
 ```
-Lego Bricks has the highest total sales
+
 
 #Now lets see the Store name that made the highest sales
 ```{r, message=FALSE, warning=FALSE}
@@ -285,11 +237,9 @@ labs(title = "Store Location Total Sales",
      x = "Location",
      y = "Total Sales")
 ```
-WOW, Look at that, downtown location is dominating
 
 
-
-#PERCENTAGE
+#Percentage Store Location Sales
 ```{r}
 Sales%>%
   select(Store_Location, Product_Category, Total_Price)%>%
@@ -315,32 +265,6 @@ labs(title = "Sales Composition in Store Location Based on Product Category",
      y = "Percentage")
 ```
 
-
-
-
-
-
-```{r}
-Sales%>%
-  select(Store_Location, Product_Category, Total_Price)%>%
-  group_by(Store_Location, Product_Category)%>%
-  summarise(Total.Price = sum(Total_Price))%>%
-
-ggplot(aes(
-  x=reorder(Store_Location,Total.Price),
-  y=Total.Price,
-  fill=Product_Category))+
-geom_col(position = "stack")+
-coord_flip()+
-theme_bw()+
-theme(legend.position = "bottom",
-      legend.title = element_blank())+
-labs(title = "Sales Composition in Store Location Based on Product Category",
-     subtitle = "January 2017 - September 2018",
-     x = "Location",
-     y = "Total Sales")
-  
-```
 
 
 ```{r}
@@ -388,7 +312,9 @@ labs(title = "Total Unit Sold Composition Based on Product Category",
 
 ```
 
-#MENCOBA
+
+
+#Sales Location Each Day
 ```{r}
 Sales %>%
   mutate(DayName=lubridate::wday(Date, label = TRUE))%>%
@@ -450,6 +376,7 @@ test for stationary with adf and pp
 adf.test(sales_daily_test);
 pp.test(sales_daily_test)
 ```
+
 since in adf and pp test, p-value less than 0.05, the data is stationary
 
 
@@ -510,7 +437,6 @@ model_prophet<-prophet_reg(
   fit(Total.Price~Date, training(splits))
 model_prophet
 ```
-PENJELASAN: lihat di book modeltime
 
 #modeltimetable
 ```{r, message=FALSE, warning=FALSE}
@@ -529,8 +455,8 @@ calibrate_tbl<-model_tbl%>%
 calibrate_tbl
 ```
 
-~Calibration is how confidence intervals and accuracy metrics are determined.
-~Calibration Data is simply forecasting predictions and residuals that are calculated from out-of-sample data.
+~Calibration is how confidence intervals and accuracy metrics are determined. <br/>
+~Calibration Data is simply forecasting predictions and residuals that are calculated from out-of-sample data. <br/>
 ~After calibrating, the calibration data follows the data through the forecasting workflow.
 
 
