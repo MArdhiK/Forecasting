@@ -1,6 +1,6 @@
 # Forecasting
 
-You can kindly check my interactive picture in rpubs : https://rpubs.com/mardhik/825527
+You can kindly check my interactive picture in rpubs : https://rpubs.com/mardhik/851471
 
 Forecasting with SNAIVE, SARIMA, ETS, PROPHET
 
