@@ -22,7 +22,7 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
 
 
 #### 2. Store Location Sales Composition
-<img src=images/3.storesales.png width=500>        <img src=images/4.storesalescomposition.png width=500>
+<img src=images/3.storesales.png width=400>        <img src=images/4.storesalescomposition.png width=400>
 
 - Downtown location is dominating in total sales
 - 'Toys' is dominating in every location   
@@ -30,7 +30,7 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
 
 
 #### 3. Total Unit Sold in Each Location Everyday
-<img src=images/5.saleslocationday.png width=550>
+<img src=images/5.saleslocationday.png width=500>
 
 - Saturday and Sunday are the highest in every store location                   
 - Every store location has same pattern, after sunday decrease and then increase
@@ -38,11 +38,11 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
     
 ### Model Comparison
 #### Visual Comparison SNAIVE and ETS
-<img src=images/6.snaive.png width=500>       <img src=images/7.ets.png width=500>
+<img src=images/6.snaive.png width=400>       <img src=images/7.ets.png width=400>
 
 
 #### Visual Comparison ARIMA and PROPHET
-<img src=images/8.arima.png width=500>       <img src=images/9.prophet.png width=500>
+<img src=images/8.arima.png width=400>       <img src=images/9.prophet.png width=400>
 
 
 #### Comparison All of Them
