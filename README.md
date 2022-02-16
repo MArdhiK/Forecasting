@@ -14,7 +14,7 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
 
 ### Here's some of the EDA that I've done, there is more of it in the documents   
 #### 1. Comparison between Total Sales and Total Unit Sold   
-<img src=images/1.salescomposition.png width=500>        <img src=images/2.totalunitsold.png width=500>
+<img src=images/1.salescomposition.png width=400>        <img src=images/2.totalunitsold.png width=400>
 
 - Take a look at every 1st and 15th is the highest
 - Highest sales category is "Toys" and the lowest is "Sports & Outdoors"
@@ -46,11 +46,11 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
 
 
 #### Comparison All of Them
-<img src=images/12.comparison.png length=500>
+<img src=images/12.comparison.png length=400>
 
 
 #### Comparison Prophet1 and Prophet2
-<img src=images/13.comparison2.png length=500>
+<img src=images/13.comparison2.png length=400>
 
 
 #### The Forecast used Prophet2
