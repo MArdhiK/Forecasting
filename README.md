@@ -30,7 +30,7 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
 
 
 #### 3. Total Unit Sold in Each Location Everyday
-<img src=images/5.saleslocationday.png width=500>
+<img src=images/5.saleslocationday.png width=600>
 
 - Saturday and Sunday are the highest in every store location                   
 - Every store location has same pattern, after sunday decrease and then increase
@@ -46,13 +46,13 @@ After some tuning on prophet, MAPE of PROPHET is 14,0%
 
 
 #### Comparison All of Them
-<img src=images/12.comparison.png length=400>
+<img src=images/12.comparison.png length=600>
 
 
 #### Comparison Prophet1 and Prophet2
-<img src=images/13.comparison2.png length=400>
+<img src=images/13.comparison2.png length=600>
 
 
 #### The Forecast used Prophet2
-<img src=images/11.next3monthsprophet.png width=500>
+<img src=images/11.next3monthsprophet.png width=600>
 
